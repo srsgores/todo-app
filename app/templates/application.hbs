@@ -1,1 +1,65 @@
-{{outlet}}
+<header role="banner">
+	<h1 class="logo">
+		{{#link-to "index"}}
+			{{svg-jar "todo-icon"}}
+			<strong class="logo-text">Todo List</strong>
+		{{/link-to}}
+	</h1>
+	<form action="/" method="GET" role="search">
+		<label for="search">Quick Find...</label>
+		{{input type="search" value=filter required=true id="search" name="search"}}
+		<button type="submit">{{svg-jar "search"}}</button>
+	</form>
+	<nav class="user-nav">
+		<ul class="nav-items">
+			<li class="nav-item">
+				{{#link-to "tasks.new"}}{{svg-jar "plus"}}{{/link-to}}
+			</li>
+			<li class="nav-item">
+				{{#link-to "notifications"}}{{svg-jar "bell"}}{{/link-to}}
+			</li>
+			<li class="nav-item">
+				{{#link-to "settings"}}{{svg-jar "gear"}}{{/link-to}}
+			</li>
+		</ul>
+	</nav>
+</header>
+
+<nav role="navigation">
+	{{#if session.currentUser}}
+		<figure>
+			<img src="{{session.currentUser.photoURL}}" alt="{{session.currentUser.name}}" class="user-avatar is-online">
+			<figcaption>
+				<strong class="user-name">{{session.currentUser.name}}</strong>
+				{{#if session.currentUser.role}}
+					<span class="user-role">{{session.currentUser.role}}</span>
+				{{/if}}
+			</figcaption>
+		</figure>
+	{{/if}}
+
+	<ul class="nav-items">
+		<li class="nav-item">
+			{{#link-to "inbox"}}
+				{{svg-jar "mail"}}
+				<span class="nav-item-text">Inbox</span>
+			{{/link-to}}
+		</li>
+		<li class="nav-item">
+			{{#link-to "inbox" (query-params fromDate=(format-date today))}}
+				{{svg-jar "note"}}
+				<span class="nav-item-text">Today</span>
+			{{/link-to}}
+		</li>
+		<li class="nav-item">
+			{{#link-to "inbox" (query-params fromDate=(format-date today) endDate=(format-date nextWeek))}}
+				{{svg-jar "note"}}
+				<span class="nav-item-text">Next 7 Days</span>
+			{{/link-to}}
+		</li>
+	</ul>
+</nav>
+
+<main role="main">
+	{{outlet}}
+</main>

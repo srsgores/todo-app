@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version = "1.1" id = "Layer_1" xmlns = "http://www.w3.org/2000/svg" x = "0px" y = "0px"
+	 viewBox = "0 0 866.2 866.2" enable-background = "new 0 0 866.2 866.2" xml:space = "preserve">
+<radialGradient id = "SVGID_1_" cx = "433.0843" cy = "433.0843" r = "432.5843" gradientUnits = "userSpaceOnUse">
+	<stop offset = "0" style = "stop-color:#B500D4"/>
+	<stop offset = "0.2494" style = "stop-color:#A600C8"/>
+	<stop offset = "0.7275" style = "stop-color:#7F00A8"/>
+	<stop offset = "0.9938" style = "stop-color:#660094"/>
+</radialGradient>
+	<linearGradient id = "SVGID_2_" gradientUnits = "userSpaceOnUse" x1 = "0" y1 = "433.0843" x2 = "866.1685" y2 = "433.0843">
+	<stop offset = "0" style = "stop-color:#FFFFFF"/>
+		<stop offset = "1" style = "stop-color:#000000"/>
+</linearGradient>
+	<path fill = "url(#SVGID_1_)" stroke = "url(#SVGID_2_)" stroke-miterlimit = "10" d = "M433.1,0.5C194.2,0.5,0.5,194.2,0.5,433.1
+	s193.7,432.6,432.6,432.6S865.7,672,865.7,433.1S672,0.5,433.1,0.5z M432.7,691.1c-142.7,0-258.4-115.7-258.4-258.4
+	S290,174.2,432.7,174.2s258.4,115.7,258.4,258.4S575.4,691.1,432.7,691.1z"/>
+</svg>

@@ -9,5 +9,5 @@ export default Model.extend({
 	online: DS.attr("boolean"),
 	email: DS.attr("string"),
 	messages: DS.hasMany("message"),
-	todos: DS.hasMany("todo")
+	tasks: DS.hasMany("task")
 });

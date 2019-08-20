@@ -1,7 +1,7 @@
 import DS from "ember-data";
-import Todo from "./todo";
+import Task from "./task";
 
-export default Todo.extend({
+export default Task.extend({
 	from: DS.belongsTo("user"),
 	to: DS.belongsTo("user"),
 	subject: DS.attr("string"),

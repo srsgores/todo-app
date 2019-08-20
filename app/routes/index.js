@@ -3,7 +3,7 @@ import RSVP from "rsvp";
 
 export default Route.extend({
 	model() {
-		return this.store.findAll("todo");
+		return this.store.findAll("task");
 	},
 	setupController(controller, model) {
 		RSVP.hash({messages: this.store.findAll("message"), users: this.store.findAll("user")}).then((combinedPayload) => {

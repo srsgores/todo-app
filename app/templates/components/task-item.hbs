@@ -1,0 +1,7 @@
+{{input type="checkbox" id=(concat elementId "-complete") checked=task.complete}}
+<label for="{{concat elementId "-complete"}}" class="visuallyhidden">Mark {{task.title}} as complete</label>
+
+<label for="{{concat elementId "-title"}}" class="visuallyhidden">Title</label>
+{{input type="text" id=(concat elementId "-title") value=task.title required=true placeholder="TODO text here"}}
+
+{{yield}}

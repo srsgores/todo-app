@@ -1,13 +1,17 @@
 <h2>{{title}}</h2>
 
-<strong class="current-filter">{{filterName}}</strong>
+{{#each startDates as |filterDate|}}
+	<label for="{{filterDate}}">{{moment-from-now filterDate}}</label>
+	{{input type="radio" value=filterDate name="active-filter" id=filterDate change=(action "setFilterDate" filterDate)}}
+{{/each}}
+
 <br>
-<ul class="tasks">
-	{{#each tasks as |task|}}
+<ol class="tasks">
+	{{#each filteredTasks as |task|}}
 		<li class="task">
-			{{task-item task=task}}
+			{{task-item task=task onSave=onSaveTask}}
 		</li>
 	{{/each}}
-</ul>
+</ol>
 
 {{yield}}

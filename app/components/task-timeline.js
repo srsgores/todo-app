@@ -6,8 +6,8 @@ export default Component.extend({
 	title: "Tasks",
 	filterName: "Last 7 Days",
 	tasks: null,
-	filteredTasks: computed("tasks", "startFilterDate", function() {
-		return this.get("tasks").filter((task) => task.get("createdAt") >= this.get("startFilterDate"));
+	filteredTasks: computed.filter("tasks", ["startFilterDate"], function(task) {
+		return task.get("createdAt") >= this.get("startFilterDate");
 	}),
 	startFilterDate: null,
 	init() {

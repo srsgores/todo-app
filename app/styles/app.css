@@ -1,0 +1,22 @@
+:root {
+	--base-font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	--heading-font-family: "Montserrat";
+	/* Colours */
+	--text-colour: #FFFFFF;
+	--accent-colour: #9E3CD7;
+	--primary-colour: #565085;
+	--colour2: #59E800;
+	--colour3: #006DFF;
+	--colour4: #FF9300;
+	--gradient1: linear-gradient(#DB50CD, #FD7FB6);
+	--gradient2: linear-gradient(#3B9DFF, #304FFE);
+	--gradient3: linear-gradient(#35305B, #5046CE);
+}
+
+body {
+	font-family: var(--base-font-family);
+	line-height: 1.4;
+	margin: 0;
+	background: linear-gradient(var(--primary-colour), #0f0f1e);
+	color: var(--text-colour);
+}

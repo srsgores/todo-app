@@ -1,0 +1,38 @@
+<nav role="navigation">
+	{{#if session.currentUser}}
+		<figure>
+			{{#if session.currentUser.photoURL}}
+				<img src="{{session.currentUser.photoURL}}" alt="{{session.currentUser.name}}" class="user-avatar is-online">
+			{{else}}
+				{{svg-jar "user" class="user-avatar"}}
+			{{/if}}
+			<figcaption>
+				<strong class="user-name">{{session.currentUser.name}}</strong>
+				{{#if session.currentUser.role}}
+					<span class="user-role">{{session.currentUser.role}}</span>
+				{{/if}}
+			</figcaption>
+		</figure>
+	{{/if}}
+
+	<ul class="nav-items">
+		<li class="nav-item">
+			{{#link-to "inbox"}}
+				{{svg-jar "mail"}}
+				<span class="nav-item-text">Inbox</span>
+			{{/link-to}}
+		</li>
+		<li class="nav-item">
+			{{#link-to "inbox" (query-params fromDate=(format-date today))}}
+				{{svg-jar "note"}}
+				<span class="nav-item-text">Today</span>
+			{{/link-to}}
+		</li>
+		<li class="nav-item">
+			{{#link-to "inbox" (query-params fromDate=(format-date today) endDate=(format-date nextWeek))}}
+				{{svg-jar "note"}}
+				<span class="nav-item-text">Next 7 Days</span>
+			{{/link-to}}
+		</li>
+	</ul>
+</nav>

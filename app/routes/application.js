@@ -2,9 +2,13 @@ import Route from "@ember/routing/route";
 
 export default Route.extend({
 	setupController(controller, model) {
-		const today = new Date();
 		controller.setProperties({
-			today: [today.getFullYear(), today.getUTCMonth(), today.getUTCDay()].join("-")
+			session: {
+				currentUser: {
+					role: "Designer",
+					name: "John Doe"
+				}
+			}
 		});
 		return this._super(controller, model);
 	}

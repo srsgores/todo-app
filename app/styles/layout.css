@@ -1,0 +1,4 @@
+[role=banner] {
+	display: flex;
+	justify-content: space-between;
+}

@@ -1,0 +1,13 @@
+<h2>{{title}}</h2>
+
+<strong class="current-filter">{{filterName}}</strong>
+<br>
+<ul class="tasks">
+	{{#each tasks as |task|}}
+		<li class="task">
+			{{todo-item todo=task}}
+		</li>
+	{{/each}}
+</ul>
+
+{{yield}}

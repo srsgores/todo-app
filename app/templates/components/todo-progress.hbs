@@ -1,0 +1,19 @@
+<h2 id="{{elementId}}">Today's Tasks</h2>
+
+<time datetime="{{moment-format now "YYYY-MM-DD"}}">
+	<strong class="day">{{moment-format now "DD"}}</strong>
+	<span class="month">{{moment-format now "MM"}}</span>
+</time>
+
+<progress max="{{tasksCount}}" value="{{tasksCompletedCount}}" aria-labelledby="{{elementId}}-progress-title">
+	{{tasksCompletedCount}} of {{tasksCount}} complete
+</progress>
+
+<dl class="progress-meta">
+	<dt>Done</dt>
+	<dd>{{tasksCompletedCount}}</dd>
+	<dt>Must Do</dt>
+	<dd>{{tasksRemainingCount}}</dd>
+</dl>
+
+{{yield}}

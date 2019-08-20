@@ -5,5 +5,6 @@ const {Model} = DS;
 export default Model.extend({
 	title: DS.attr("string"),
 	text: DS.attr("string"),
-	complete: DS.attr("boolean")
+	complete: DS.attr("boolean"),
+	createdAt: DS.attr("date")
 });

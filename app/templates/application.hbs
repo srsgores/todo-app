@@ -9,7 +9,7 @@
 	<nav class="user-nav">
 		<ul class="nav-items" role="menubar">
 			<li class="nav-item" role="menuitem">
-				{{#link-to "tasks.new"}}{{svg-jar "add-solid"}}{{/link-to}}
+				<button {{action "addTask"}}>{{svg-jar "add-solid"}}</button>
 			</li>
 			<li class="nav-item" role="menuitem">
 				{{#link-to "notifications"}}{{svg-jar "notifications"}}{{/link-to}}

@@ -11,5 +11,10 @@ export default Route.extend({
 			}
 		});
 		return this._super(controller, model);
+	},
+	actions: {
+		addTask() {
+			return this.store.createRecord("task", {createdAt: new Date()});
+		}
 	}
 });

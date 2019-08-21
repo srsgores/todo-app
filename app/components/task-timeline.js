@@ -9,6 +9,8 @@ export default Component.extend({
 	filteredTasks: computed.filter("tasks", ["startFilterDate"], function(task) {
 		return task.get("createdAt") >= this.get("startFilterDate");
 	}),
+	sortedFilteredTasks: computed.sort("filteredTasks", "taskSorting"),
+	taskSorting: Object.freeze(["createdAt:desc"]),
 	startFilterDate: null,
 	init() {
 		const dayIntervals = [-1, -14, -7, 7, 14];

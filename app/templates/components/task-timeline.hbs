@@ -7,7 +7,7 @@
 
 <br>
 <ol class="tasks">
-	{{#each filteredTasks as |task|}}
+	{{#each sortedFilteredTasks as |task|}}
 		<li class="task">
 			{{task-item task=task onSave=onSaveTask}}
 		</li>

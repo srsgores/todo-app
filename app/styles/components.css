@@ -34,3 +34,20 @@
 .task-search-label + .task-search-input:focus, .task-search.has-value .task-search-input {
 	padding-top: 2.5em;
 }
+
+.user-container {
+	display: flex;
+	align-items: center;
+	margin: 0 0 0.5em 0;
+	padding: var(--sidebar-padding);
+}
+
+.user-avatar {
+	margin-right: 1em;
+	margin-left: 0.3em;
+	border-radius: 50%;
+}
+
+.user-role {
+	display: block;
+}

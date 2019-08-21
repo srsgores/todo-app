@@ -1,0 +1,37 @@
+.task-search {
+	position: relative;
+}
+
+.task-search-input {
+	padding: 1em;
+	border-radius: 3em;
+	background: linear-gradient(90deg, #544e81, #635c96);
+	border: none;
+}
+
+.task-search button[type=submit] {
+	cursor: pointer;
+	color: inherit;
+	background: transparent;
+	vertical-align: middle;
+	display: inline-block;
+	border: 0;
+	padding: 0.5em;
+}
+
+.task-search-input {
+	transition: 0.5s ease padding;
+	width: 65%;
+	max-width: 35em;
+	min-width: 9em;
+}
+
+.task-search-label {
+	position: absolute;
+	top: 0.5em;
+	text-indent: 1em;
+}
+
+.task-search-label + .task-search-input:focus, .task-search.has-value .task-search-input {
+	padding-top: 2.5em;
+}

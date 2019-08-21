@@ -1,4 +1,61 @@
+:root {
+	--banner-padding: 1em;
+	--sidebar-min-width: 20rem;
+	--banner-background: linear-gradient(90deg, #383265, var(--primary-colour))
+}
+
+.logo {
+	min-width: var(--sidebar-min-width);
+	margin: 0;
+}
+
 [role=banner] {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
+	padding: var(--banner-padding);
+	background: var(--banner-background);
+	box-shadow: -1em 0 2.5em 0 #00000091;
+}
+
+[role=search] {
+	flex: 1;
+}
+
+[role=menuitem] {
+	cursor: pointer;
+}
+
+[role=menuitem] button {
+	cursor: inherit;
+	background: transparent;
+	border: none;
+	padding: 0;
+	color: inherit;
+}
+
+.user-nav .nav-item {
+	display: inline-block;
+	opacity: 0.5;
+	transition: 0.2s ease opacity;
+	margin: 0 0.5em;
+}
+
+.user-nav .nav-item:hover {
+	opacity: 1;
+}
+
+.user-nav .nav-item + .nav-item {
+	margin-left: 1em;
+}
+
+.nav-item-link {
+	color: inherit;
+}
+
+input, textarea {
+	background: transparent;
+	border: 0.1em solid currentColor;
+	color: inherit;
+	box-shadow: none;
 }

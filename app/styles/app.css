@@ -20,3 +20,14 @@ body {
 	background: linear-gradient(var(--primary-colour), #0f0f1e);
 	color: var(--text-colour);
 }
+
+.logo-text, .logo-icon {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.logo-link {
+	display: block;
+	text-decoration: none;
+	color: inherit;
+}

@@ -1,7 +1,7 @@
 <header role="banner">
 	<h1 class="logo">
-		{{#link-to "index"}}
-			{{svg-jar "todo-logo" height=32}}
+		{{#link-to "index" class="logo-link"}}
+			{{svg-jar "todo-logo" height=32 class="logo-icon"}}
 			<strong class="logo-text">Todo List</strong>
 		{{/link-to}}
 	</h1>
@@ -12,10 +12,10 @@
 				<button {{action "addTask"}}>{{svg-jar "add-solid"}}</button>
 			</li>
 			<li class="nav-item" role="menuitem">
-				{{#link-to "notifications"}}{{svg-jar "notifications"}}{{/link-to}}
+				{{#link-to "notifications" class="nav-item-link"}}{{svg-jar "notifications"}}{{/link-to}}
 			</li>
 			<li class="nav-item" role="menuitem">
-				{{#link-to "settings"}}{{svg-jar "cog"}}{{/link-to}}
+				{{#link-to "settings" class="nav-item-link"}}{{svg-jar "cog"}}{{/link-to}}
 			</li>
 		</ul>
 	</nav>

@@ -1,7 +1,8 @@
 :root {
 	--banner-padding: 1em;
-	--sidebar-min-width: 20rem;
-	--banner-background: linear-gradient(90deg, #383265, var(--primary-colour))
+	--sidebar-min-width: 15rem;
+	--banner-background: linear-gradient(90deg, #383265, var(--primary-colour));
+	--sidebar-background: linear-gradient(#2b2b57, var(--primary-colour));
 }
 
 .logo {
@@ -20,6 +21,11 @@
 
 [role=search] {
 	flex: 1;
+}
+
+[role=main] {
+	flex: 1;
+	margin: 1.5em;
 }
 
 [role=menuitem] {
@@ -58,4 +64,14 @@ input, textarea {
 	border: 0.1em solid currentColor;
 	color: inherit;
 	box-shadow: none;
+}
+
+.content-container {
+	display: flex;
+}
+
+.sidebar {
+	min-width: var(--sidebar-min-width);
+	background: var(--sidebar-background);
+	box-shadow: 0 2em 3.5em -2em #00000091;
 }

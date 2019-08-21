@@ -4,7 +4,7 @@
 	/* Colours */
 	--text-colour: #FFFFFF;
 	--accent-colour: #9E3CD7;
-	--primary-colour: #565085;
+	--primary-colour: #48377b;
 	--colour2: #59E800;
 	--colour3: #006DFF;
 	--colour4: #FF9300;
@@ -17,7 +17,7 @@ body {
 	font-family: var(--base-font-family);
 	line-height: 1.4;
 	margin: 0;
-	background: linear-gradient(var(--primary-colour), #0f0f1e);
+	background: linear-gradient(var(--primary-colour), #0f0f32);
 	color: var(--text-colour);
 }
 

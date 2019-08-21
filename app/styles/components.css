@@ -2,13 +2,6 @@
 	position: relative;
 }
 
-.task-search-input {
-	padding: 1em;
-	border-radius: 3em;
-	background: linear-gradient(90deg, #544e81, #635c96);
-	border: none;
-}
-
 .task-search button[type=submit] {
 	cursor: pointer;
 	color: inherit;
@@ -17,9 +10,15 @@
 	display: inline-block;
 	border: 0;
 	padding: 0.5em;
+	position: absolute;
+	transform: translate(-3.25em, 0.25em);
 }
 
 .task-search-input {
+	padding: 1em;
+	border-radius: 3em;
+	background: linear-gradient(90deg, #544e81, #635c96);
+	border: none;
 	transition: 0.5s ease padding;
 	width: 65%;
 	max-width: 35em;

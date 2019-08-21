@@ -1,10 +1,10 @@
 <nav role="navigation" class="sidebar">
 	{{#if session.currentUser}}
-		<figure>
+		<figure class="user-container">
 			{{#if session.currentUser.photoURL}}
 				<img src="{{session.currentUser.photoURL}}" alt="{{session.currentUser.name}}" class="user-avatar is-online">
 			{{else}}
-				{{svg-jar "user" class="user-avatar"}}
+				{{svg-jar "user" class="user-avatar" height=65}}
 			{{/if}}
 			<figcaption>
 				<strong class="user-name">{{session.currentUser.name}}</strong>
@@ -18,19 +18,19 @@
 	<ul class="nav-items">
 		<li class="nav-item">
 			{{#link-to "inbox" class="nav-item-link"}}
-				{{svg-jar "mail"}}
+				{{svg-jar "inbox"}}
 				<span class="nav-item-text">Inbox</span>
 			{{/link-to}}
 		</li>
 		<li class="nav-item">
 			{{#link-to "inbox" (query-params fromDate=(format-date today)) class="nav-item-link"}}
-				{{svg-jar "note"}}
+				{{svg-jar "calendar"}}
 				<span class="nav-item-text">Today</span>
 			{{/link-to}}
 		</li>
 		<li class="nav-item">
 			{{#link-to "inbox" (query-params fromDate=(format-date today) endDate=(format-date nextWeek)) class="nav-item-link"}}
-				{{svg-jar "note"}}
+				{{svg-jar "folder"}}
 				<span class="nav-item-text">Next 7 Days</span>
 			{{/link-to}}
 		</li>

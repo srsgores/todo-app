@@ -1,0 +1,15 @@
+{{#if messages.length}}
+	<ul class="messages">
+		{{#each messages as |message|}}
+			<li class="message-container">
+				{{message-item message=message onReply=(action (mut activeThread message))}}
+			</li>
+		{{/each}}
+	</ul>
+{{/if}}
+
+{{#if activeThread}}
+	{{message-composer thread=activeThread}}
+{{/if}}
+
+{{yield}}

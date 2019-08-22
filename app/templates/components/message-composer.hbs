@@ -1,0 +1,19 @@
+<label for="{{elementId}}--recipient">Recipient</label>
+{{input type="email" id=(concat elementId "--recipient") value=recipient title="Please enter a valid recipient" required=true placeholder="recipient"}}
+
+<label for="{{elementId}}--body">Message</label>
+{{textarea id=(concat elementId "--body") rows=7 required=true value=body}}
+
+<footer class="message-composer-footer">
+	<ul class="message-composer-actions">
+		<li class="messgae-composer-action">
+			<button {{action onAddAttachment}}>{{svg-jar "attachment"}}</button>
+		</li>
+		<li class="message-composer-action">
+			<button>{{svg-jar "trash"}}</button>
+		</li>
+	</ul>
+	<button type="submit" disabled="{{canSend}}">Send</button>
+</footer>
+
+{{yield}}

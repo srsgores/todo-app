@@ -2,4 +2,8 @@
 
 {{task-timeline tasks=model}}
 
+{{#dashboard-widget title="Inbox" count=messages.length}}
+	{{message-list messages=messages}}
+{{/dashboard-widget}}
+
 {{outlet}}

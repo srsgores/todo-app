@@ -1,0 +1,23 @@
+<div class="message-sender-container">
+	{{input type="checkbox" id=(concat elementId "--selected") checked=message.complete title="Please enter a valid selected"}}
+	<img src="{{message.user.imageURL}}" alt="{{message.from.name}}" class="message-sender-image">
+</div>
+
+
+<label for="{{elementId}}--selected">{{message.from.name}}</label>
+<button>{{svg-jar "attachment"}}</button>
+
+<dl class="message-meta">
+	<dt>Sent</dt>
+	<dd><time datetime="{{moment-format message.createdAt "YY-MM-DD"}}">{{moment-from-now message.createdAt}}</time></dd>
+</dl>
+
+<ul class="message-actions">
+	<li class="message-action">
+		<button {{action onReply}}>{{svg-jar "reply"}}</button>
+	</li>
+</ul>
+<h3 class="message-subject">{{message.subject}}</h3>
+<p class="message-body">{{message.body}}</p>
+
+{{yield}}

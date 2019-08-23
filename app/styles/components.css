@@ -1,3 +1,7 @@
+:root {
+	--widget-padding: 1.5rem 2rem;
+}
+
 .task-search {
 	position: relative;
 }
@@ -54,9 +58,7 @@
 
 .task-progress {
 	display: flex;
-	box-sizing: border-box;
 	align-items: center;
-	padding: 1.5rem 2rem;
 }
 
 .task-progress-progress, .task-progress-meta {
@@ -69,7 +71,7 @@
 	margin: 0;
 }
 
-.task-progress-meta dd:first-child {
+.task-progress-meta dd:first-of-type {
 	flex: 1;
 }
 
@@ -114,4 +116,35 @@
 .widget {
 	border-radius: 1.25em;
 	background: linear-gradient(90deg, #4e3c6e, #40395f);
+	box-sizing: border-box;
+	padding: var(--widget-padding);
+	margin: 2em;
+}
+
+.dashboard-widget-count {
+	background-color: var(--accent-colour3);
+	border-radius: 50%;
+	box-shadow: 0 0.4em 0.5em 0 rgba(0, 0, 0, 0.25);
+	padding: 0.5em 0.9em;
+	vertical-align: middle;
+	margin: 0 0.5em;
+}
+
+.dashboard-widget-header {
+	background-color: var(--accent-colour2);
+	margin: -1.5rem -2rem;
+	padding: var(--widget-padding);
+	border-top-left-radius: inherit;
+	border-top-right-radius: inherit;
+	box-sizing: border-box;
+}
+
+.dashboard-widget-header + * {
+	margin-top: 1.5rem;
+}
+
+.dashboard-widget-heading {
+	margin: 0;
+	font-size: 1em;
+	text-transform: uppercase;
 }

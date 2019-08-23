@@ -20,4 +20,5 @@ progress[value]::-webkit-progress-bar {
 
 progress[value]::-webkit-progress-value {
 	background-color: var(--colour2);
+	border-radius: inherit;
 }

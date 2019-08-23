@@ -12,6 +12,7 @@ export default Component.extend({
 	sortedFilteredTasks: computed.sort("filteredTasks", "taskSorting"),
 	taskSorting: Object.freeze(["createdAt:desc"]),
 	startFilterDate: null,
+	classNameBindings: [":widget"],
 	init() {
 		const dayIntervals = [-1, -14, -7, 7, 14];
 		this.set("startDates", dayIntervals.map((interval) => {

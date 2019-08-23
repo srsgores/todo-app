@@ -5,3 +5,19 @@ h1, h2, h3, h4, h5, h6 {
 svg {
 	fill: currentColor;
 }
+
+progress[value] {
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+progress[value]::-webkit-progress-bar {
+	background-color: rgba(129, 138, 176, 0.64);
+	border-radius: 1em;
+	box-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.25) inset;
+	height: 0.5em;
+}
+
+progress[value]::-webkit-progress-value {
+	background-color: var(--colour2);
+}

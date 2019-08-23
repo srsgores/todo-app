@@ -1,6 +1,8 @@
-{{task-progress tasks=model}}
+<article class="task-widgets">
+	{{task-progress tasks=model}}
 
-{{task-timeline tasks=model}}
+	{{task-timeline tasks=model}}
+</article>
 
 {{#dashboard-widget title="Inbox" count=messages.length}}
 	{{message-list messages=messages}}

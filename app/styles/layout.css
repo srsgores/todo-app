@@ -26,7 +26,8 @@
 
 [role=main] {
 	flex: 1;
-	margin: 1.5em;
+	display: inherit;
+	flex-wrap: wrap;
 }
 
 [role=menuitem] {
@@ -114,4 +115,8 @@ input, textarea {
 
 img {
 	max-width: 100%;
+}
+
+.task-widgets {
+	flex: 1;
 }

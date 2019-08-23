@@ -85,6 +85,7 @@
 
 .task-progress-meta dd {
 	margin: 0;
+	font-weight: 600;
 }
 
 .task-progress-container {

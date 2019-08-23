@@ -202,3 +202,118 @@
 	font-weight: 600;
 	opacity: 1;
 }
+
+.tasks {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.task {
+	margin: 1em 0;
+}
+
+.task-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-left: 0.1em solid rgba(138, 151, 188, 0.33);
+	padding: 0 0 0 0.5em;
+	position: relative;
+}
+
+.task-item:before {
+	content: "■";
+	position: absolute;
+	top: -1em;
+	left: -0.5em;
+	color: var(--accent-colour);
+	transition: 0.2s ease color;
+}
+
+.task-item.complete:before {
+	color: rgba(138, 151, 188, 0.33);
+}
+
+.complete .task-container {
+	opacity: 0.6;
+}
+
+.task-description {
+	opacity: 0.8;
+}
+
+.task-container {
+	transition: 0.2s ease opacity;
+	flex: 1;
+}
+
+.task-actions {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.task-action {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.task-action + .task-action {
+	margin-left: 0.5em;
+}
+
+.task-title {
+	font-size: 1em;
+}
+
+.task-action > * {
+	border-radius: 50%;
+	border: 0;
+	padding: 0.5em 0.25em;
+	box-sizing: border-box;
+	cursor: pointer;
+	background-color: rgba(138, 151, 188, 0.33);
+	display: block;
+	font-size: 0.65em;
+	transition: 0.2s ease background-color, 0.2s ease color;
+}
+
+.task-action svg {
+	height: 1em;
+}
+
+.task-item-complete-toggle {
+	color: #161616;
+}
+
+.task-item-edit-toggle {
+	cursor: pointer;
+}
+
+.task-item-edit-icon {
+	opacity: 0;
+	transition: 0.2s ease opacity;
+	height: 1em;
+	font-size: 0.85em;
+	display: inline-block;
+	margin: 0 0.25em;
+}
+
+.task-item-edit-toggle:hover .task-item-edit-icon {
+	opacity: 1;
+}
+
+.task-item-edit-toggle:hover {
+	text-decoration: underline;
+}
+
+.complete .task-item-complete-toggle {
+	background-color: var(--colour2);
+	color: inherit;
+}
+
+.task-item-comment-action {
+	background-color: var(--colour3);
+	color: inherit;
+}

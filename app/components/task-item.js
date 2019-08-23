@@ -3,7 +3,7 @@ import {computed} from "@ember/object";
 
 export default Component.extend({
 	task: null,
-	classNameBindings: ["hasTitle", "hasDueDate", "hasDescription", "isEditing"],
+	classNameBindings: [":task-item", "hasTitle", "hasDueDate", "hasDescription", "isEditing", "task.complete"],
 	isEditing: false,
 	hasTitle: computed.notEmpty("task.title"),
 	hasDueDate: computed.notEmpty("task.dueDate"),

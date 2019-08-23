@@ -1,10 +1,10 @@
 <nav role="navigation" class="sidebar">
 	{{#if session.currentUser}}
 		<figure class="user-container">
-			{{#if session.currentUser.photoURL}}
-				<img src="{{session.currentUser.photoURL}}" alt="{{session.currentUser.name}}" class="user-avatar is-online">
+			{{#if session.currentUser.imageURL}}
+				<img src="{{session.currentUser.imageURL}}" alt="{{session.currentUser.name}}" class="user-avatar is-online" height="70">
 			{{else}}
-				{{svg-jar "user" class="user-avatar" height=65}}
+				{{svg-jar "user" class="user-avatar" height=60}}
 			{{/if}}
 			<figcaption>
 				<strong class="user-name">{{session.currentUser.name}}</strong>

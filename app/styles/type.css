@@ -22,3 +22,9 @@ progress[value]::-webkit-progress-value {
 	background-color: var(--colour2);
 	border-radius: inherit;
 }
+
+hr {
+	background: rgba(172, 189, 231, 0.33);
+	height: 2px;
+	border: 0;
+}

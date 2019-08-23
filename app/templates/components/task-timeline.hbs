@@ -1,11 +1,16 @@
-<h2>{{title}}</h2>
+<header class="task-timeline-header">
+	<h2 class="task-timeline-heading">{{title}}</h2>
+	<ul class="task-timeline-filters">
+		{{#each startDates as |filterDate|}}
+			<li class="task-timeline-filter">
+				{{input type="radio" value=filterDate name="active-filter" id=filterDate change=(action "setFilterDate" filterDate) class="visuallyhidden"}}
+				<label for="{{filterDate}}">{{svg-jar "tag"}} {{moment-from-now filterDate}}</label>
+			</li>
+		{{/each}}
+	</ul>
+</header>
 
-{{#each startDates as |filterDate|}}
-	<label for="{{filterDate}}">{{moment-from-now filterDate}}</label>
-	{{input type="radio" value=filterDate name="active-filter" id=filterDate change=(action "setFilterDate" filterDate)}}
-{{/each}}
-
-<br>
+<hr>
 <ol class="tasks">
 	{{#each sortedFilteredTasks as |task|}}
 		<li class="task">

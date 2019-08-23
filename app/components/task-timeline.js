@@ -14,7 +14,7 @@ export default Component.extend({
 	startFilterDate: null,
 	classNameBindings: [":widget"],
 	init() {
-		const dayIntervals = [-1, -14, -7, 7, 14];
+		const dayIntervals = [-1, 7, 14];
 		this.set("startDates", dayIntervals.map((interval) => {
 			const today = new Date();
 			const otherDate = today.getDate() + interval;

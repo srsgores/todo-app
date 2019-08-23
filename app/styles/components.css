@@ -149,3 +149,56 @@
 	font-size: 1em;
 	text-transform: uppercase;
 }
+
+
+.task-timeline-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.task-timeline-heading {
+	font-size: 1.3em;
+	text-transform: uppercase;
+}
+
+.task-timeline-filters {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.task-timeline-filter {
+	display: inline-block;
+}
+
+.task-timeline-filter + .task-timeline-filter {
+	margin-left: 1em;
+}
+.task-timeline-filter svg {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.task-timeline-filter:nth-child(2) svg {
+	fill: #9e3cd7;
+}
+
+.task-timeline-filter:nth-child(3) svg {
+	fill: var(--accent-colour3);
+}
+
+.task-timeline-filter:nth-child(4) svg {
+	fill: var(--primary-colour);
+}
+
+.task-timeline-filter label {
+	cursor: pointer;
+	transition: 0.2s ease opacity;
+	opacity: 0.7;
+}
+
+.task-timeline-filter input:checked + label {
+	font-weight: 600;
+	opacity: 1;
+}

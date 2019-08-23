@@ -11,6 +11,11 @@
 </header>
 
 <hr>
+
+{{#if onAddTask}}
+	<button {{action onAddTask}} class="add-task-button">{{svg-jar "add-solid"}} Add Task</button>
+{{/if}}
+
 <ol class="tasks">
 	{{#each sortedFilteredTasks as |task|}}
 		<li class="task">

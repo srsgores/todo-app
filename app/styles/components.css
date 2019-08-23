@@ -317,3 +317,19 @@
 	background-color: var(--colour3);
 	color: inherit;
 }
+
+.add-task-button {
+	background: transparent;
+	border: 0;
+	color: inherit;
+	cursor: pointer;
+	font-size: 1em;
+}
+
+.add-task-button svg {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 0.3em;
+	fill: var(--accent-colour);
+	height: 1em;
+}

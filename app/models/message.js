@@ -3,8 +3,8 @@ import Task from "./task";
 import {computed} from "@ember/object";
 
 export default Task.extend({
-	from: DS.belongsTo("user"),
-	to: DS.belongsTo("user"),
+	from: DS.belongsTo("user", {inverse: null}),
+	to: DS.belongsTo("user", {inverse: null}),
 	subject: DS.attr("string"),
 	title: computed.alias("subject"),
 	text: computed.alias("body"),

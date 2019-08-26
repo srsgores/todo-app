@@ -1,0 +1,88 @@
+button {
+	cursor: pointer;
+}
+
+.form-field {
+	position: relative;
+	--form-field-padding: 1em;
+	--form-field-padding-increment: 1.5em;
+	--form-field-padding-active: 3em;
+	--form-field-control-border-radius: 0.5em;
+}
+
+.form-field-label {
+	display: block;
+	top: 1em;
+	position: absolute;
+	left: 1em;
+	opacity: 0.6;
+	transition: 0.3s ease opacity;
+	color: #a4b6e1;
+	font-style: italic;
+	font-weight: 500;
+}
+
+.form-field-control {
+	transition: 0.5s ease padding;
+	width: 100%;
+	border-radius: var(--form-field-control-border-radius);
+}
+
+.form-field:first-of-type .form-field-control {
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.form-field-label + .form-field-control {
+	box-sizing: border-box;
+	padding: var(--form-field-padding-increment) var(--form-field-padding) var(--form-field-padding) var(--form-field-padding);
+	background: #201b488a;
+	border: 0;
+	color: inherit;
+}
+
+.form-field-control input, .form-field-control textarea .form-field-control select {
+	width: 100%;
+}
+
+.form-field.has-value .form-field-label + .form-field-control, .form-field-control:focus {
+	padding-top: var(--form-field-padding-active);
+}
+
+.form-field.has-value .form-field-label {
+	opacity: 1;
+}
+
+.form-field + .form-field {
+	border-top: 0.1em solid rgba(136, 143, 183, 0.4);
+}
+
+.form-field + .form-field .form-field-control {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.submit-overlay {
+	position: relative;
+}
+
+.submit-overlay button[type=submit] {
+	right: 1em;
+	bottom: 1em;
+	position: absolute;
+}
+
+.submit-overlay .form-field-control:last-child {
+	padding-bottom: 2.5em;
+}
+
+.submit-overlay button[type=submit] {
+	color: inherit;
+	text-transform: uppercase;
+	padding: 0.6em 1.75em;
+	background: linear-gradient(45deg, var(--accent-colour), var(--colour4));
+	font-weight: 600;
+	border: 0;
+	font-size: 1em;
+	border-radius: 0.5em;
+}

@@ -1,7 +1,9 @@
 # todo-app
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Sample [emberjs](https://emberjs.com) project for RMIT online.
+![image](https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/cb45d870946561.5bb4c66c21535.png)
+
+Brought to life [from the behance design concept](https://www.behance.net/gallery/70946561/ToDo-list-concept)
 
 ## Prerequisites
 

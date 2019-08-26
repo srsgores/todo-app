@@ -254,9 +254,35 @@
 	list-style: none;
 }
 
+.is-editing .task-actions {
+	position: absolute;
+	top: 1em;
+	right: 1em;
+}
+
+.is-editing .form-field-control:first-of-type {
+	padding-right: 7em;
+}
+
+.is-editing .task-action {
+	opacity: 0.6;
+	filter: grayscale(100%);
+}
+
+.is-editing .task-action:hover {
+	opacity: 1;
+}
+
+.is-editing .task-action > * {
+	background-color: transparent;
+	color: white;
+	font-size: 0.9em;
+}
+
 .task-action {
 	display: inline-block;
 	vertical-align: middle;
+	transition: 0.3s ease opacity, 0.3s ease filter;
 }
 
 .task-action + .task-action {

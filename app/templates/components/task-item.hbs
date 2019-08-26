@@ -44,6 +44,9 @@
 	<li class="task-action">
 		<button class="task-item-comment-action">{{svg-jar "chat-bubble-dots"}}</button>
 	</li>
+	<li class="task-action">
+		<button class="task-item-remove-action" {{action "remove" task}}>{{svg-jar "trash"}}</button>
+	</li>
 	<li class="task-action visuallyhidden">
 		<label for="{{concat elementId "-edit"}}">{{svg-jar "edit-pencil"}}</label>
 		{{input type="checkbox" id=(concat elementId "-edit") checked=isEditing}}

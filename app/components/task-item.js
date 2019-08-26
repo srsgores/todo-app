@@ -13,6 +13,9 @@ export default Component.extend({
 			return task.save().finally(() => {
 				this.toggleProperty("isEditing")
 			});
+		},
+		remove(task) {
+			return task.destroyRecord();
 		}
 	},
 	init() {

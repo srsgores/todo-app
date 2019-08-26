@@ -1,5 +1,6 @@
 import Component from "@ember/component";
 
 export default Component.extend({
-	messages: null
+	messages: null,
+	classNameBindings: [":message-list"]
 });

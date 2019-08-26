@@ -359,3 +359,70 @@
 	fill: var(--accent-colour);
 	height: 1em;
 }
+
+.message-sender-container {
+	text-align: center;
+	margin-right: 1em;
+}
+
+.messages {
+	padding: 0;
+	list-style: none;
+}
+
+.message-item {
+	display: flex;
+	align-items: center;
+	padding: 1.5em 0;
+}
+
+.message-sender-image {
+	max-height: 5em;
+	border-radius: 50%;
+}
+
+.message-item-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.message-from-name {
+	margin: 0;
+	flex: 1;
+}
+
+.message-meta {
+	margin: 0;
+	opacity: 0.85;
+}
+
+.message-meta dd {
+	margin: 0;
+}
+
+.message-actions {
+	list-style: none;
+	padding: 0;
+}
+
+.message-action {
+	margin: 0 1em;
+}
+
+.message-action button {
+	border: 0;
+	padding: 0.3em 0.2em;
+	border-radius: 50%;
+	color: inherit;
+	background-color: var(--colour3);
+}
+
+.message-action button svg {
+	height: 1em;
+}
+
+.message-select-toggle {
+	width: 100%;
+}

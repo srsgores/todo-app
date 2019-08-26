@@ -60,6 +60,82 @@ export default function() {
 							data: {type: "users", id: 2}
 						}
 					}
+				},
+				{
+					id: 2,
+					type: "messages",
+					attributes:
+						{
+							subject: "Mei eu dicunt utamur groccis.  Vel ad eipuit laboritis perinax.",
+							body: "Lorem ipsum text.",
+							complete: false,
+							"created-at": new Date()
+						},
+					relationships: {
+						from: {
+							data: {type: "users", id: 1}
+						},
+						to: {
+							data: {type: "users", id: 2}
+						}
+					}
+				},
+				{
+					id: 3,
+					type: "messages",
+					attributes:
+						{
+							subject: "Mei eu dicunt utamur groccis.  Vel ad eipuit laboritis perinax.",
+							body: "Lorem ipsum text.",
+							complete: false,
+							"created-at": new Date()
+						},
+					relationships: {
+						from: {
+							data: {type: "users", id: 1}
+						},
+						to: {
+							data: {type: "users", id: 2}
+						}
+					}
+				},
+				{
+					id: 4,
+					type: "messages",
+					attributes:
+						{
+							subject: "Mei eu dicunt utamur groccis.  Vel ad eipuit laboritis perinax.",
+							body: "Lorem ipsum text.",
+							complete: false,
+							"created-at": new Date()
+						},
+					relationships: {
+						from: {
+							data: {type: "users", id: 1}
+						},
+						to: {
+							data: {type: "users", id: 2}
+						}
+					}
+				},
+				{
+					id: 5,
+					type: "messages",
+					attributes:
+						{
+							subject: "Mei eu dicunt utamur groccis.  Vel ad eipuit laboritis perinax.",
+							body: "Lorem ipsum text.",
+							complete: false,
+							"created-at": new Date()
+						},
+					relationships: {
+						from: {
+							data: {type: "users", id: 1}
+						},
+						to: {
+							data: {type: "users", id: 2}
+						}
+					}
 				}
 			]
 		};

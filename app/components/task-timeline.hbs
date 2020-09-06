@@ -3,7 +3,7 @@
 
 	{{#each this.startDates as |filterDate index|}}
 		<label for="{{filterDate}}">{{moment-from-now filterDate}}</label>
-		<Input @type="radio" @value="{{filterDate}}" @name="active-filter" @id={{filterDate}} @change={{mut this.setFilterDate filterDate}}/>
+		<Input @type="radio" @value="{{filterDate}}" @name="active-filter" @id={{filterDate}} @change={{fn (mut this.startFilterDate) filterDate}}/>
 	{{/each}}
 
 	<br>

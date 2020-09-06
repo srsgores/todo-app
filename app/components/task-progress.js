@@ -1,12 +1,11 @@
+import {alias, filterBy} from "@ember/object/computed";
 import Component from "@ember/component";
-import {computed} from "@ember/object";
 
 export default Component.extend({
-	tagName: "article",
-	classNameBindings: [":task-progress", ":widget"],
-	tasksCount: computed.alias("tasks.length"),
-	tasksRemaining: computed.filterBy("tasks", "complete", false),
-	tasksRemainingCount: computed.alias("tasksRemaining.length"),
-	tasksCompleted: computed.filterBy("tasks", "complete", true),
-	tasksCompletedCount: computed.alias("tasksCompleted.length")
+	tagName: "aside",
+	tasksCount: alias("tasks.length"),
+	tasksRemaining: filterBy("tasks", "complete", false),
+	tasksRemainingCount: alias("tasksRemaining.length"),
+	tasksCompleted: filterBy("tasks", "complete", true),
+	tasksCompletedCount: alias("tasksCompleted.length")
 });

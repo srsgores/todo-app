@@ -1,13 +1,13 @@
+import {notEmpty} from "@ember/object/computed";
 import Component from "@ember/component";
-import {computed} from "@ember/object";
 
 export default Component.extend({
 	task: null,
 	classNameBindings: [":task-item", "hasTitle", "hasDueDate", "hasDescription", "isEditing", "task.complete"],
 	isEditing: false,
-	hasTitle: computed.notEmpty("task.title"),
-	hasDueDate: computed.notEmpty("task.dueDate"),
-	hasDescription: computed.notEmpty("task.description"),
+	hasTitle: notEmpty("task.title"),
+	hasDueDate: notEmpty("task.dueDate"),
+	hasDescription: notEmpty("task.description"),
 	actions: {
 		onSave(task) {
 			return task.save().finally(() => {
@@ -19,7 +19,7 @@ export default Component.extend({
 		}
 	},
 	init() {
-		if (!this.get("hasTitle")) {
+		if (!this.hasTitle) {
 			this.set("isEditing", true);
 		}
 		return this._super(...arguments);

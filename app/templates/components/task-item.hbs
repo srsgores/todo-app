@@ -1,55 +1,48 @@
-<div class="task-container">
-	{{#if isEditing}}
-		<form {{action "onSave" task on="submit"}} class="submit-overlay">
-			{{#form-field value=task.title}}
-				<label for="{{concat elementId "-title"}}" class="form-field-label">Title</label>
-				{{input type="text" id=(concat elementId "-title") value=task.title required=true autofocus=true class="form-field-control"}}
-			{{/form-field}}
-			{{#form-field value=task.description}}
-				<label for="{{concat elementId "-description"}}" class="form-field-label">Description</label>
-				{{textarea value=task.description id=(concat elementId "-description") rows=10 class="form-field-control"}}
-			{{/form-field}}
-			<button type="submit">Add</button>
-		</form>
-	{{else}}
-		{{#if hasTitle}}
-			<h2 class="task-title">
-				<label for="{{concat elementId "-edit"}}" class="task-item-edit-toggle">
-					{{#if task.complete}}
-						<del>{{task.title}}</del>
-					{{else}}
-						{{task.title}}
-					{{/if}}
-					{{svg-jar "edit-pencil" class="task-item-edit-icon"}}
-				</label>
-			</h2>
-		{{/if}}
-		{{#if hasDueDate}}
-			<dl class="task-meta">
-				<dt>Due</dt>
-				<dd><span class="task-due-date">{{moment-from-now task.dueDate}}</span></dd>
-			</dl>
-		{{/if}}
-		{{#if hasDescription}}
-			<p class="task-description">{{task.description}}</p>
-		{{/if}}
+{{#if isEditing}}
+	<form {{action "onSave" task on="submit"}}>
+		<label for="{{concat elementId "-title"}}">Title</label>
+		<Input @type="text" @id={{concat elementId "-title"}} @value={{task.title}} required={{true}} @autofocus={{true}} placeholder="TODO text here"/>
+		<label for="{{concat elementId "-description"}}">Description</label>
+		<Textarea @value={{task.description}} @id={{concat elementId "-description"}} @rows={{10}}/>
+		<button type="submit">Add</button>
+	</form>
+{{else}}
+	{{#if hasTitle}}
+		<h2 class="task-title">
+			<label for="{{concat elementId "-edit"}}">
+				{{#if task.complete}}
+					<del>{{task.title}}</del>
+				{{else}}
+					{{task.title}}
+				{{/if}}
+			</label>
+		</h2>
 	{{/if}}
-</div>
+	{{#if hasDueDate}}
+		<dl class="task-meta">
+			<dt>Due</dt>
+			<dd><span class="task-due-date">{{moment-from-now task.dueDate}}</span></dd>
+		</dl>
+	{{/if}}
+	{{#if hasDescription}}
+		<p class="task-description">{{task.description}}</p>
+	{{/if}}
+{{/if}}
 
 <ul class="task-actions" role="menubar">
 	<li class="task-action">
-		<label for="{{concat elementId "-complete"}}" class="task-item-complete-toggle">{{svg-jar "checkmark"}}</label>
-		{{input type="checkbox" id=(concat elementId "-complete") checked=task.complete class="visuallyhidden"}}
+		<label for="{{concat elementId "-complete"}}">{{svg-jar "checkmark"}}</label>
+		<Input @type="checkbox" @id={{concat elementId "-complete"}} @checked={{task.complete}}/>
 	</li>
 	<li class="task-action">
-		<button class="task-item-comment-action">{{svg-jar "chat-bubble-dots"}}</button>
+		<button>{{svg-jar "chat-bubble-dots"}}</button>
 	</li>
 	<li class="task-action">
-		<button class="task-item-remove-action" {{action "remove" task}}>{{svg-jar "trash"}}</button>
-	</li>
-	<li class="task-action visuallyhidden">
 		<label for="{{concat elementId "-edit"}}">{{svg-jar "edit-pencil"}}</label>
-		{{input type="checkbox" id=(concat elementId "-edit") checked=isEditing}}
+		<Input @type="checkbox" @id={{concat elementId "-edit"}} @checked={{isEditing}}/>
+	</li>
+	<li class="task-action">
+		<button>{{svg-jar "edit-copy"}}</button>
 	</li>
 </ul>
 

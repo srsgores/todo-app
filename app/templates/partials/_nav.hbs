@@ -17,22 +17,22 @@
 
 	<ul class="nav-items">
 		<li class="nav-item">
-			{{#link-to "inbox" class="nav-item-link"}}
+			<LinkTo @route="inbox" class="nav-item-link">
 				{{svg-jar "inbox"}}
 				<span class="nav-item-text">Inbox</span>
-			{{/link-to}}
+			</LinkTo>
 		</li>
 		<li class="nav-item">
-			{{#link-to "inbox" (query-params fromDate=(format-date today)) class="nav-item-link"}}
+			<LinkTo @route="inbox" @query={{hash fromDate=(format-date today)}} class="nav-item-link">
 				{{svg-jar "calendar"}}
 				<span class="nav-item-text">Today</span>
-			{{/link-to}}
+			</LinkTo>
 		</li>
 		<li class="nav-item">
-			{{#link-to "inbox" (query-params fromDate=(format-date today) endDate=(format-date nextWeek)) class="nav-item-link"}}
+			<LinkTo @route="inbox" @query={{hash fromDate=(format-date today) endDate=(format-date nextWeek)}} class="nav-item-link">
 				{{svg-jar "folder"}}
 				<span class="nav-item-text">Next 7 Days</span>
-			{{/link-to}}
+			</LinkTo>
 		</li>
 	</ul>
 </nav>

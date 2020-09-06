@@ -1,19 +1,19 @@
+import {notEmpty} from "@ember/object/computed";
 import Component from "@ember/component";
 import {debounce} from "@ember/runloop";
-import {computed} from "@ember/object";
 
 export default Component.extend({
 	tagName: "form",
 	attributeBindings: ["role", "method", "action"],
 	classNameBindings: [":task-search", "hasValue"],
-	hasValue: computed.notEmpty("filter"),
+	hasValue: notEmpty("filter"),
 	role: "search",
 	method: "GET",
 	action: "/",
 	searchLabel: "Quick Find...",
 	actions: {
 		debounceSearch(value) {
-			return debounce(this, this.get("onSearch"), value, 1000);
+			return debounce(this, this.onSearch, value, 1000);
 		}
 	}
 });

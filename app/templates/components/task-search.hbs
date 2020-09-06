@@ -1,5 +1,5 @@
 <label for="{{elementId}}-search" class="task-search-label">{{searchLabel}}</label>
-{{input type="search" class="task-search-input" value=filter required=true id=(concat elementId "-search") name="filter" key-press=(action "debounceSearch" filter)}}
+<Input @type="search" class="task-search-input" @value={{filter}} required={{true}} @id={{concat elementId "-search"}} @name="filter" @key-press={{action "debounceSearch" filter}}/>
 <button type="submit">{{svg-jar "search"}}</button>
 
 {{yield}}

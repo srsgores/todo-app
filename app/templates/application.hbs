@@ -1,21 +1,21 @@
 <header role="banner">
 	<h1 class="logo">
-		{{#link-to "index" class="logo-link"}}
+		<LinkTo @route="index" class="logo-link">
 			{{svg-jar "todo-logo" height=32 class="logo-icon"}}
 			<strong class="logo-text">Todo List</strong>
-		{{/link-to}}
+		</LinkTo>
 	</h1>
-	{{task-search filter=filter onSearch=(action (mut filter))}}
+	<TaskSearch @filter={{filter}} @onSearch={{action (mut filter)}}/>
 	<nav class="user-nav">
 		<ul class="nav-items" role="menubar">
 			<li class="nav-item" role="menuitem">
 				<button {{action "addTask"}}>{{svg-jar "add-solid"}}</button>
 			</li>
 			<li class="nav-item" role="menuitem">
-				{{#link-to "notifications" class="nav-item-link"}}{{svg-jar "notifications"}}{{/link-to}}
+				<LinkTo @route="notifications" class="nav-item-link">{{svg-jar "notifications"}}</LinkTo>
 			</li>
 			<li class="nav-item" role="menuitem">
-				{{#link-to "settings" class="nav-item-link"}}{{svg-jar "cog"}}{{/link-to}}
+				<LinkTo @route="settings" class="nav-item-link">{{svg-jar "cog"}}</LinkTo>
 			</li>
 		</ul>
 	</nav>

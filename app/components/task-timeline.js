@@ -1,15 +1,15 @@
+import {filter, sort} from "@ember/object/computed";
 import Component from "@ember/component";
-import {computed} from "@ember/object";
 
 export default Component.extend({
 	tagName: "aside",
 	title: "Tasks",
 	filterName: "Last 7 Days",
 	tasks: null,
-	filteredTasks: computed.filter("tasks", ["startFilterDate"], function(task) {
-		return task.get("createdAt") >= this.get("startFilterDate");
+	filteredTasks: filter("tasks", ["startFilterDate"], function(task) {
+		return task.get("createdAt") >= this.startFilterDate;
 	}),
-	sortedFilteredTasks: computed.sort("filteredTasks", "taskSorting"),
+	sortedFilteredTasks: sort("filteredTasks", "taskSorting"),
 	taskSorting: Object.freeze(["createdAt:desc"]),
 	startFilterDate: null,
 	classNameBindings: [":widget"],

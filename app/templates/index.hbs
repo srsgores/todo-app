@@ -1,11 +1,11 @@
 <article class="task-widgets">
-	{{task-progress tasks=model}}
+	<TaskProgress @tasks={{model}}/>
 
-	{{task-timeline tasks=model onAddTask=(action "addTask")}}
+	<TaskTimeline @tasks={{model}} @onAddTask={{this.addTask}}/>
 </article>
 
-{{#dashboard-widget title="Inbox" count=messages.length}}
-	{{message-list messages=messages}}
-{{/dashboard-widget}}
+<DashboardWidget @title="Inbox" @count={{this.messages.length}}>
+	<MessageList @messages={{this.messages}}/>
+</DashboardWidget>
 
 {{outlet}}

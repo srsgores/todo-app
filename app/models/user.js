@@ -1,13 +1,11 @@
-import DS from "ember-data";
-
-const {Model} = DS;
+import Model, {attr, hasMany} from "@ember-data/model";
 
 export default Model.extend({
-	name: DS.attr("string"),
-	role: DS.attr("string"),
-	imageURL: DS.attr("string"),
-	online: DS.attr("boolean"),
-	email: DS.attr("string"),
-	messages: DS.hasMany("message"),
-	tasks: DS.hasMany("task")
+	name: attr("string"),
+	role: attr("string"),
+	imageURL: attr("string"),
+	online: attr("boolean"),
+	email: attr("string"),
+	messages: hasMany("message"),
+	tasks: hasMany("task")
 });

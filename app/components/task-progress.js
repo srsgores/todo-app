@@ -9,6 +9,4 @@ export default Component.extend({
 	tasksRemainingCount: computed.alias("tasksRemaining.length"),
 	tasksCompleted: computed.filterBy("tasks", "complete", true),
 	tasksCompletedCount: computed.alias("tasksCompleted.length"),
-	tasksToday: computed.gte("tasks", "today"),
-	incompleteTasksToday: computed.filterBy("tasksToday", "complete", false)
 });

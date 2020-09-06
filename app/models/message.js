@@ -1,12 +1,9 @@
-import DS from "ember-data";
+import {attr, belongsTo} from "@ember-data/model";
 import Task from "./task";
-import {computed} from "@ember/object";
 
-export default Task.extend({
-	from: DS.belongsTo("user", {inverse: null}),
-	to: DS.belongsTo("user", {inverse: null}),
-	subject: DS.attr("string"),
-	title: computed.alias("subject"),
-	text: computed.alias("body"),
-	body: DS.attr("string")
-});
+export default class MessageModel extends Task {
+	@belongsTo("user") from;
+	@belongsTo("user") to;
+	@attr("string") subject;
+	@attr("string") body;
+}

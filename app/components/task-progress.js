@@ -8,5 +8,5 @@ export default Component.extend({
 	tasksRemaining: computed.filterBy("tasks", "complete", false),
 	tasksRemainingCount: computed.alias("tasksRemaining.length"),
 	tasksCompleted: computed.filterBy("tasks", "complete", true),
-	tasksCompletedCount: computed.alias("tasksCompleted.length"),
+	tasksCompletedCount: computed.alias("tasksCompleted.length")
 });

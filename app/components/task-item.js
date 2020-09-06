@@ -11,7 +11,7 @@ export default Component.extend({
 	actions: {
 		onSave(task) {
 			return task.save().finally(() => {
-				this.toggleProperty("isEditing")
+				this.toggleProperty("isEditing");
 			});
 		},
 		remove(task) {

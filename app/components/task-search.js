@@ -1,19 +1,19 @@
 import {notEmpty} from "@ember/object/computed";
-import Component from "@ember/component";
+import Component from "@glimmer/component";
 import {debounce} from "@ember/runloop";
+import {action} from "@ember/object";
+import {guidFor} from "@ember/object/internals";
 
-export default Component.extend({
-	tagName: "form",
-	attributeBindings: ["role", "method", "action"],
-	classNameBindings: [":task-search", "hasValue"],
-	hasValue: notEmpty("filter"),
-	role: "search",
-	method: "GET",
-	action: "/",
-	searchLabel: "Quick Find...",
-	actions: {
-		debounceSearch(value) {
-			return debounce(this, this.onSearch, value, 1000);
-		}
+export default class TaskSearchComponent extends Component {
+	elementId = guidFor(this);
+
+	@notEmpty("args.filter") hasValue;
+
+	get searchLabel() {
+		return this.args.searchLabel || "Quick Find...";
 	}
-});
+
+	@action debounceSearch(value) {
+		return debounce(this, this.args.onSearch, value, 1000);
+	}
+}

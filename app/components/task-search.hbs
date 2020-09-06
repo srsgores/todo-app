@@ -1,0 +1,8 @@
+<form action="" method="GET" role="search" aria-labelledby="{{this.elementId}}-search-label" class="task-search{{if this.hasValue " has-value"}}">
+	<label for="{{this.elementId}}-search" id="{{this.elementId}}-search-label" class="task-search-label">{{this.searchLabel}}</label>
+
+	<Input @type="search" class="task-search-input" @value={{@filter}} required={{true}} @id="{{this.elementId}}-search" @name="filter" @key-press={{fn this.debounceSearch @filter}}/>
+	<button type="submit">{{svg-jar "search"}}</button>
+
+	{{yield}}
+</form>

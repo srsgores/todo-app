@@ -1,11 +1,12 @@
 import {alias, filterBy} from "@ember/object/computed";
-import Component from "@ember/component";
+import Component from "@glimmer/component";
+import {guidFor} from "@ember/object/internals";
 
-export default Component.extend({
-	tagName: "aside",
-	tasksCount: alias("tasks.length"),
-	tasksRemaining: filterBy("tasks", "complete", false),
-	tasksRemainingCount: alias("tasksRemaining.length"),
-	tasksCompleted: filterBy("tasks", "complete", true),
-	tasksCompletedCount: alias("tasksCompleted.length")
-});
+export default class TaskProgressComponent extends Component {
+	elementId = guidFor(this);
+	@alias("args.tasks.length") tasksCount;
+	@filterBy("args.tasks", "complete", false) tasksRemaining;
+	@alias("tasksRemaining.length") tasksRemainingCount;
+	@filterBy("args.tasks", "complete", true) tasksCompleted;
+	@alias("tasksCompleted.length") tasksCompletedCount;
+}

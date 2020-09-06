@@ -1,5 +1,5 @@
 import {helper} from "@ember/component/helper";
 
-export default helper(function formatDate(params/*, hash*/) {
-	return (params && params[0] && params[0] instanceof Date) ? [params[0].getFullYear(), params[0].getUTCMonth(), params[0].getUTCDay()].join("-") : params;
+export default helper(function formatDate([date]) {
+	return (date && date instanceof Date) ? [date.getFullYear(), date.getUTCMonth(), date.getUTCDay()].join("-") : undefined;
 });

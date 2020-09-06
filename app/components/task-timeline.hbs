@@ -1,9 +1,9 @@
 <aside class="task-timeline">
 	<h2>{{this.title}}</h2>
 
-	{{#each this.startDates as |filterDate|}}
+	{{#each this.startDates as |filterDate index|}}
 		<label for="{{filterDate}}">{{moment-from-now filterDate}}</label>
-		<Input @type="radio" @value={{filterDate}} @name="active-filter" @id={{filterDate}} @change={{mut this.setFilterDate filterDate}}/>
+		<Input @type="radio" @value="{{filterDate}}" @name="active-filter" @id={{filterDate}} @change={{mut this.setFilterDate filterDate}}/>
 	{{/each}}
 
 	<br>

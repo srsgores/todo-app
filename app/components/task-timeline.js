@@ -6,7 +6,7 @@ export default class TaskTimelineComponent extends Component {
 	title = "Tasks";
 	@tracked startFilterDate;
 	@filter("args.tasks", ["startFilterDate"], function(task) {
-		return task.get("createdAt") >= this.args.startFilterDate;
+		return task.get("createdAt") >= this.startFilterDate;
 	}) filteredTasks;
 	@sort("filteredTasks", "taskSorting") sortedFilteredTasks;
 

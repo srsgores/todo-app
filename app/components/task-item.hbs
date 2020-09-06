@@ -1,8 +1,8 @@
 <article class="task-item
-	{{if this.hasTitle " has-title"}}"
+	{{if this.hasTitle " has-title"}}
 	{{if this.hasDueDate " has-due-date"}}
 	{{if this.hasDescription " has-description"}}
-	{{if this.isEditing " is-editing"}}>
+	{{if this.isEditing " is-editing"}}">
 	{{#if this.isEditing}}
 		<form {{on "submit" (fn this.onSave @task)}}>
 			<label for="{{concat this.elementId "-title"}}">Title</label>
@@ -14,7 +14,7 @@
 	{{else}}
 		{{#if this.hasTitle}}
 			<h2 class="task-title">
-				<label for="{{concat this.elementId "-edit"}}">
+				<label for="{{this.elementId}}-edit">
 					{{#if @task.complete}}
 						<del>{{@task.title}}</del>
 					{{else}}

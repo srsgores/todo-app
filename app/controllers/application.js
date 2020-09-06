@@ -1,6 +1,6 @@
 import Controller from "@ember/controller";
 
-export default Controller.extend({
-	filter: null,
-	queryParams: ["filter"]
-});
+export default class ApplicationController extends Controller {
+	filter = null;
+	queryParams = ["filter"]
+}

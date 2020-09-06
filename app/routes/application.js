@@ -1,16 +1,19 @@
 import Route from "@ember/routing/route";
+import {action} from "@ember/object";
 
-export default Route.extend({
+export default class ApplicationRoute extends Route {
 	setupController(controller, model) {
-		const activeUserPromise = this.store.find("user", 1);
-		return activeUserPromise.then((activeUser) => {
-			controller.set("session", {currentUser: activeUser});
-			return this._super(controller, model);
+		controller.setProperties({
+			session: {
+				currentUser: {
+					role: "Designer",
+					name: "John Doe"
+				}
+			}
 		});
-	},
-	actions: {
-		addTask() {
-			return this.store.createRecord("task", {createdAt: new Date()});
-		}
+		return super.setupController(controller, model);
 	}
-});
+	@action addTask() {
+		return this.store.createRecord("task", {createdAt: new Date()});
+	}
+}

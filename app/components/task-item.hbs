@@ -1,0 +1,55 @@
+<article class="task-item
+	{{if this.hasTitle " has-title"}}"
+	{{if this.hasDueDate " has-due-date"}}
+	{{if this.hasDescription " has-description"}}
+	{{if this.isEditing " is-editing"}}>
+	{{#if this.isEditing}}
+		<form {{on "submit" (fn this.onSave @task)}}>
+			<label for="{{concat this.elementId "-title"}}">Title</label>
+			<Input @type="text" @id={{concat this.elementId "-title"}} @value={{@task.title}} required={{true}} @autofocus={{true}} placeholder="TODO text here"/>
+			<label for="{{concat this.elementId "-description"}}">Description</label>
+			<Textarea @value={{@task.description}} @id={{concat this.elementId "-description"}} @rows={{10}}/>
+			<button type="submit">Add</button>
+		</form>
+	{{else}}
+		{{#if this.hasTitle}}
+			<h2 class="task-title">
+				<label for="{{concat this.elementId "-edit"}}">
+					{{#if @task.complete}}
+						<del>{{@task.title}}</del>
+					{{else}}
+						{{@task.title}}
+					{{/if}}
+				</label>
+			</h2>
+		{{/if}}
+		{{#if this.hasDueDate}}
+			<dl class="task-meta">
+				<dt>Due</dt>
+				<dd><span class="task-due-date">{{moment-from-now @task.dueDate}}</span></dd>
+			</dl>
+		{{/if}}
+		{{#if this.hasDescription}}
+			<p class="task-description">{{@task.description}}</p>
+		{{/if}}
+	{{/if}}
+
+	<ul class="task-actions" role="menubar">
+		<li class="task-action">
+			<label for="{{concat this.elementId "-complete"}}">{{svg-jar "checkmark"}}</label>
+			<Input @type="checkbox" @id={{concat this.elementId "-complete"}} @checked={{@task.complete}}/>
+		</li>
+		<li class="task-action">
+			<button>{{svg-jar "chat-bubble-dots"}}</button>
+		</li>
+		<li class="task-action">
+			<label for="{{concat this.elementId "-edit"}}">{{svg-jar "edit-pencil"}}</label>
+			<Input @type="checkbox" @id={{concat this.elementId "-edit"}} @checked={{this.isEditing}}/>
+		</li>
+		<li class="task-action">
+			<button>{{svg-jar "edit-copy"}}</button>
+		</li>
+	</ul>
+
+	{{yield}}
+</article>

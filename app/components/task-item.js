@@ -1,27 +1,26 @@
 import {notEmpty} from "@ember/object/computed";
-import Component from "@ember/component";
+import Component from "@glimmer/component";
+import {tracked} from "@glimmer/tracking";
+import {action} from "@ember/object";
+import {guidFor} from "@ember/object/internals";
 
-export default Component.extend({
-	task: null,
-	classNameBindings: [":task-item", "hasTitle", "hasDueDate", "hasDescription", "isEditing", "task.complete"],
-	isEditing: false,
-	hasTitle: notEmpty("task.title"),
-	hasDueDate: notEmpty("task.dueDate"),
-	hasDescription: notEmpty("task.description"),
-	actions: {
-		onSave(task) {
-			return task.save().finally(() => {
-				this.toggleProperty("isEditing");
-			});
-		},
-		remove(task) {
-			return task.destroyRecord();
-		}
-	},
-	init() {
-		if (!this.hasTitle) {
-			this.set("isEditing", true);
-		}
-		return this._super(...arguments);
+export default class TaskItemComponent extends Component {
+	@tracked isEditing = false;
+	elementId = guidFor(this);
+	@notEmpty("args.task.title") hasTitle;
+	@notEmpty("args.task.dueDate") hasDueDate;
+	@notEmpty("args.task.description") hasDescription;
+
+	@action
+	async onSave(task) {
+		await task.save();
+		this.isEditing = !this.isEditing;
 	}
-});
+
+	constructor() {
+		super(...arguments);
+		if (!this.hasTitle) {
+			this.isEditing = true;
+		}
+	}
+}

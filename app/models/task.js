@@ -1,4 +1,5 @@
-import Model, {attr, belongsTo, hasMany} from "@ember-data/model";
+import {attr, belongsTo, hasMany} from "@ember-data/model";
+import {Model} from "ember-pouch";
 
 export default class TaskModel extends Model {
 	@attr("string") title;

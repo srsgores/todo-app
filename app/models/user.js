@@ -1,4 +1,5 @@
-import Model, {attr, hasMany} from "@ember-data/model";
+import {attr, hasMany} from "@ember-data/model";
+import {Model} from "ember-pouch";
 
 export default class UserModel extends Model {
 	@attr("string") name;

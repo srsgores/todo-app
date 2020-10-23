@@ -9,7 +9,19 @@
 			<Input @type="text" @id={{concat this.elementId "-title"}} @value={{@task.title}} required={{true}} @autofocus={{true}} placeholder="TODO text here"/>
 			<label for="{{concat this.elementId "-description"}}">Description</label>
 			<Textarea @value={{@task.description}} @id={{concat this.elementId "-description"}} @rows={{10}}/>
-			<button type="submit">Add</button>
+			{{#if @tasks.length}}
+				<fieldset>
+					<legend>Related Task</legend>
+					<p>If this task requires another task to be completed before it.</p>
+					<label for="{{this.elementId}}-depends-on">Depends on</label>
+					<select id="{{this.elementId}}-depends-on" {{on "change" fn (mut @task.relatedTask) this.relatedTask}}>
+						{{#each @tasks as |task|}}
+							<option value={{task.id}}>{{task.name}}</option>
+						{{/each}}
+					</select>
+				</fieldset>
+			{{/if}}
+			<button type="submit">Update task</button>
 		</form>
 	{{else}}
 		{{#if this.hasTitle}}
@@ -51,5 +63,14 @@
 		</li>
 	</ul>
 
+	{{#if @task.tasks.length}}
+		<ol class="task-tasks">
+			{{#each @task.tasks as |task|}}
+				<li class="task-item-container">
+					<TaskItem @task={{task}} @onSave={{@onSave}}/>
+				</li>
+			{{/each}}
+		</ol>
+	{{/if}}
 	{{yield}}
 </article>

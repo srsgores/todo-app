@@ -1,4 +1,4 @@
-import Model, {attr} from "@ember-data/model";
+import Model, {attr, belongsTo, hasMany} from "@ember-data/model";
 
 export default class TaskModel extends Model {
 	@attr("string") title;
@@ -6,4 +6,6 @@ export default class TaskModel extends Model {
 	@attr("boolean") complete;
 	@attr("date") createdAt;
 	@attr("date") dueDate;
+	@belongsTo("task", {inverse: "tasks"}) parentTask;
+	@hasMany("task", {inverse: "parentTask"}) tasks;
 }

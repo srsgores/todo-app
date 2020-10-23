@@ -6,6 +6,10 @@ module.exports = function(environment) {
 		environment,
 		rootURL: "/",
 		locationType: "auto",
+		emberPouch: {
+			remoteDb: "http://localhost:5984/todo",
+			localDb: "todo"
+		},
 		EmberENV: {
 			FEATURES: {
 				// Here you can enable experimental features on an ember canary build

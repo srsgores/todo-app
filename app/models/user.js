@@ -6,6 +6,6 @@ export default class UserModel extends Model {
 	@attr("string") role;
 	@attr("boolean") imageURL;
 	@attr("string") online;
-	@hasMany("message") email;
-	@hasMany("task") messages;
+	@hasMany("message", {inverse: "owner"}) inbox;
+	@hasMany("task") tasks;
 }

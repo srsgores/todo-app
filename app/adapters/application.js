@@ -2,7 +2,7 @@ import PouchDB from "ember-pouch/pouchdb";
 import {Adapter} from "ember-pouch";
 
 let remote = new PouchDB("http://localhost:5984/todo");
-let db = new PouchDB("local_pouch");
+let db = new PouchDB("todo-app");
 
 db.sync(remote, {
 	live: true,   // do a live, ongoing sync

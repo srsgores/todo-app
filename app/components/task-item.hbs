@@ -4,7 +4,7 @@
 	{{if this.hasDescription " has-description"}}
 	{{if this.isEditing " is-editing"}}">
 	{{#if this.isEditing}}
-		<form {{on "submit" (fn this.onSave @task)}}>
+		<form {{on "submit" this.onSave}}>
 			<label for="{{concat this.elementId "-title"}}">Title</label>
 			<Input @type="text" @id={{concat this.elementId "-title"}} @value={{@task.title}} required={{true}} @autofocus={{true}} placeholder="TODO text here"/>
 			<label for="{{concat this.elementId "-description"}}">Description</label>

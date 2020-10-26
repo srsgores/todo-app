@@ -12,8 +12,9 @@ export default class TaskItemComponent extends Component {
 	@notEmpty("args.task.description") hasDescription;
 
 	@action
-	async onSave(task) {
-		await task.save();
+	async onSave(submitEvent) {
+		submitEvent.preventDefault();
+		await this.args.task.save();
 		this.isEditing = !this.isEditing;
 	}
 

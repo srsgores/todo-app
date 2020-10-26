@@ -1,2 +1,25 @@
+{{#if this.tasksByDueDate.length}}
+	<ul class="tasks calendar-view">
+		{{#each-in this.tasksByDueDate as |day tasks|}}
+			<li class="task">
+				<article class="task-grouping">
+					<header class="task-grouping-header">
+						<h2><time>{{moment-format day}}</time></h2>
+					</header>
+					{{#if tasks.length}}
+						<ul class="task-grouping-tasks">
+							{{#each day.tasks as |task|}}
+								<li class="task-grouping-task">
+									<TaskItem @task={{task}}/>
+								</li>
+							{{/each}}
+						</ul>
+					{{/if}}
+				</article>
+			</li>
+		{{/each-in}}
+
+	</ul>
+{{/if}}
 
 {{yield}}

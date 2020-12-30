@@ -15,12 +15,18 @@
 	--gradient3: linear-gradient(#35305B, #5046CE);
 }
 
+html, body {
+	height: 100%;
+}
+
 body {
 	font-family: var(--base-font-family);
 	line-height: 1.4;
 	margin: 0;
 	background: linear-gradient(var(--primary-colour), #0f0f32);
 	color: var(--text-colour);
+	display: flex;
+	flex-direction: column;
 }
 
 .logo-text, .logo-icon {

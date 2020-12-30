@@ -34,6 +34,18 @@ body {
 	vertical-align: middle;
 }
 
+.logo-icon {
+	max-height: 1em;
+}
+
+.logo {
+	font-size: 1.3em;
+}
+
+.logo-text {
+	padding: 0 calc(var(--banner-padding) / 2);
+}
+
 .logo-link {
 	display: block;
 	text-decoration: none;

@@ -1,25 +1,31 @@
 <article class="task-widgets">
-	<TaskProgress @tasks={{this.model}}/>
+	<div class="task-widgets-container">
+		<DashboardWidget>
+			<TaskProgress @tasks={{this.model}}/>
+		</DashboardWidget>
 
-	<nav class="view-mode-nav">
-		<ul class="view-modes">
-			<li class="view-mode">
-				<LinkTo @query={{hash viewMode=null}}>{{svg-jar "view-list"}}</LinkTo>
-			</li>
-			<li class="view-mode">
-				<LinkTo @query={{hash viewMode="calendar"}}>{{svg-jar "calendar"}}</LinkTo>
-			</li>
-		</ul>
-	</nav>
-	{{#if this.isCalendarMode}}
-		<TasksByDay @tasks={{this.model}} @onAddTask={{this.addTask}}/>
-	{{else}}
-		<TaskTimeline @tasks={{this.model}} @onAddTask={{this.addTask}}/>
-	{{/if}}
+		<DashboardWidget>
+			<nav class="view-mode-nav">
+				<ul class="view-modes">
+					<li class="view-mode">
+						<LinkTo @query={{hash viewMode=null}}>{{svg-jar "view-list"}}</LinkTo>
+					</li>
+					<li class="view-mode">
+						<LinkTo @query={{hash viewMode="calendar"}}>{{svg-jar "calendar"}}</LinkTo>
+					</li>
+				</ul>
+			</nav>
+			{{#if this.isCalendarMode}}
+				<TasksByDay @tasks={{this.model}} @onAddTask={{this.addTask}}/>
+			{{else}}
+				<TaskTimeline @tasks={{this.model}} @onAddTask={{this.addTask}}/>
+			{{/if}}
+		</DashboardWidget>
+	</div>
+
+	<DashboardWidget @title="Inbox" @count={{this.messages.length}}>
+		<MessageList @messages={{this.messages}}/>
+	</DashboardWidget>
 </article>
-
-<DashboardWidget @title="Inbox" @count={{this.messages.length}}>
-	<MessageList @messages={{this.messages}}/>
-</DashboardWidget>
 
 {{outlet}}

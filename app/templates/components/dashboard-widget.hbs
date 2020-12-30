@@ -1,10 +1,18 @@
-<header class="dashboard-widget-header">
-	<h2 class="dashboard-widget-heading">
-		{{title}}
-		{{#if count}}
-			<sup class="dashboard-widget-count">{{count}}</sup>
-		{{/if}}
-	</h2>
-</header>
+<article class="dashboard-widget widget" ...attributes>
+	{{#if this.hasTitle}}
+		<header class="dashboard-widget-header">
+			<h2 class="dashboard-widget-heading">
+				{{@title}}
+				{{#if @count}}
+					<sup class="dashboard-widget-count">{{@count}}</sup>
+				{{/if}}
+			</h2>
+		</header>
+	{{/if}}
 
-{{yield}}
+	{{#if (has-block)}}
+		<div class="dashboard-widget-content">
+			{{yield}}
+		</div>
+	{{/if}}
+</article>

@@ -24,12 +24,6 @@
 	flex: 1;
 }
 
-[role=main] {
-	flex: 1;
-	display: inherit;
-	flex-wrap: wrap;
-}
-
 [role=menuitem] {
 	cursor: pointer;
 }
@@ -123,6 +117,8 @@ img {
 
 .task-widgets {
 	flex: 1;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .visuallyhidden {

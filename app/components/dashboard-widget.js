@@ -1,7 +1,6 @@
-import Component from "@ember/component";
+import Component from "@glimmer/component";
+import {computed} from "@ember/object";
 
-export default Component.extend({
-	classNameBindings: [":dashboard-widget", ":widget"],
-	title: null,
-	count: null
-});
+export default class DashboardWidgetComponent extends Component {
+	@computed.notEmpty("args.title") hasTitle;
+}

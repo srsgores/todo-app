@@ -1,5 +1,6 @@
 :root {
-	--widget-padding: 1.5rem 2rem;
+	--widget-padding-horizontal: 2rem;
+	--widget-padding: 1.5rem var(--widget-padding-horizontal);
 }
 
 .task-search {
@@ -66,16 +67,15 @@
 	display: block;
 }
 
-.task-progress > * {
-	margin: 1em;
-}
-
 .task-progress-progress, .task-progress-meta {
 	width: 100%;
 }
 
 .task-progress-date {
 	text-align: right;
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-right: var(--widget-padding-horizontal);
 }
 
 .task-progress-by-today {
@@ -110,8 +110,7 @@
 }
 
 .task-progress-heading {
-	margin: 0 0 1em 0;
-	font-size: 1.1em;
+	font-size: 1em;
 }
 
 .task-progress-time {
@@ -129,6 +128,10 @@
 
 .day {
 	font-size: 1.8em;
+}
+
+.month {
+	font-size: 1.1em;
 }
 
 .widget {

@@ -23,6 +23,6 @@ export default class TaskTimelineComponent extends Component {
 			today.setDate(otherDate);
 			return today;
 		});
-		this.startFilterDate = this.startDates[0];
+		this.startFilterDate = null;
 	}
 }

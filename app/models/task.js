@@ -7,6 +7,12 @@ export default class TaskModel extends Model {
 	@attr("boolean") complete;
 	@attr("date") createdAt;
 	@attr("date") dueDate;
+	@attr({
+		defaultValue() {
+			return {};
+		}
+	}) dueDateByDays;
+	@attr() dueDateApplicableTimes;
 	@belongsTo("task", {inverse: "tasks"}) parentTask;
 	@hasMany("task", {inverse: "parentTask"}) tasks;
 }

@@ -3,19 +3,55 @@ import Component from "@glimmer/component";
 import {tracked} from "@glimmer/tracking";
 import {action} from "@ember/object";
 import {guidFor} from "@ember/object/internals";
+import {isEmpty} from "@ember/utils";
 
 export default class TaskItemComponent extends Component {
 	@tracked isEditing = false;
+	@tracked hasFlexibleDueDate = false;
 	elementId = guidFor(this);
 	@notEmpty("args.task.title") hasTitle;
 	@notEmpty("args.task.dueDate") hasDueDate;
 	@notEmpty("args.task.description") hasDescription;
 
-	@action
-	async onSave(submitEvent) {
-		submitEvent.preventDefault();
-		await this.args.task.save();
-		this.isEditing = !this.isEditing;
+	DAYS = [
+		"sunday",
+		"monday",
+		"tuesday",
+		"wednesday",
+		"thursday",
+		"friday",
+		"saturday"
+	];
+
+	get todayDate() {
+		const today = new Date();
+		return [today.getFullYear(), today.getMonth(), today.getDay()].join("-");
+	}
+
+	get dueDateByDays() {
+		return this.DAYS.map((day) => {
+			const isDueOnDay = Boolean(this.args.task.dueDateByDays[day] && this.args.task.dueDateByDays[day].startTime);
+			const dayDueDateTimes = isDueOnDay ? this.args.task.dueDateByDays[day] : {};
+			return {
+				day,
+				selected: isDueOnDay,
+				...dayDueDateTimes
+			};
+		});
+	}
+
+	@action async onSave() {
+		return await this.args.task.save();
+	}
+
+	@action onToggleDay(day, event) {
+		const checked = event.target.checked;
+		if (checked && (!this.args.task.dueDateByDays[day]?.startTime && !this.args.task.dueDateByDays[day]?.endTime)) {
+			this.args.task.dueDateByDays[day] = {
+				startTime: "",
+				endTime: ""
+			}
+		}
 	}
 
 	constructor() {
@@ -23,5 +59,6 @@ export default class TaskItemComponent extends Component {
 		if (!this.hasTitle) {
 			this.isEditing = true;
 		}
+		this.hasFlexibleDueDate = Object.values(this.args.task.dueDateByDays).some(day => !isEmpty(day.startTime));
 	}
 }

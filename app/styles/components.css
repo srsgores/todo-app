@@ -59,10 +59,27 @@
 .task-progress {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
+}
+
+.task-progress-progress {
+	display: block;
+}
+
+.task-progress > * {
+	margin: 1em;
 }
 
 .task-progress-progress, .task-progress-meta {
 	width: 100%;
+}
+
+.task-progress-date {
+	text-align: right;
+}
+
+.task-progress-by-today {
+	flex: 1;
 }
 
 .task-progress-meta {

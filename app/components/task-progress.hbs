@@ -1,21 +1,22 @@
-<aside class="task-progress">
-	<h2 id="{{this.elementId}}">Today's Tasks</h2>
-
-	<time datetime="{{moment-format now "YYYY-MM-DD"}}">
+<article class="task-progress">
+	<time datetime={{moment-format now "YYYY-MM-DD"}} class="task-progress-date">
 		<strong class="day">{{moment-format now "DD"}}</strong>
-		<span class="month">{{moment-format now "MM"}}</span>
+		<span class="month">{{moment-format now "MMM"}}</span>
 	</time>
+	<section class="task-progress-by-today">
+		<h2 class="task--progress-heading">Today's Tasks</h2>
 
-	<progress max="{{this.tasksCount}}" value="{{this.tasksCompletedCount}}" aria-labelledby="{{this.elementId}}-progress-title">
-		{{this.tasksCompletedCount}} of {{this.tasksCount}} complete
-	</progress>
+		<progress class="task-progress-progress" max="{{this.tasksCount}}" value="{{this.tasksCompletedCount}}" aria-labelledby="{{this.elementId}}-progress-title">
+			{{this.tasksCompletedCount}} of {{this.tasksCount}} complete
+		</progress>
 
-	<dl class="progress-meta">
-		<dt>Done</dt>
-		<dd>{{this.tasksCompletedCount}}</dd>
-		<dt>Must Do</dt>
-		<dd>{{this.tasksRemainingCount}}</dd>
-	</dl>
+		<dl class="task-progress-meta">
+			<dt>Done</dt>
+			<dd>{{this.tasksCompletedCount}}</dd>
+			<dt>Must Do</dt>
+			<dd>{{this.tasksRemainingCount}}</dd>
+		</dl>
 
-	{{yield}}
-</aside>
+		{{yield}}
+	</section>
+</article>

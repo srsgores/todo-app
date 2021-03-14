@@ -22,12 +22,12 @@
 					<ol class="day-select">
 						{{#each this.dueDateByDays as |day|}}
 							<label for="{{this.elementId}}-{{day.day}}">{{day.day}}</label>
-							<Input @type="checkbox" id="{{this.elementId}}-{{day.day}}" @checked={{day.selected}} {{on "change" (fn this.onToggleDay day.day)}}/>
+							<Input @type="checkbox" id="{{this.elementId}}-{{day.day}}" {{on "change" (fn this.onToggleDay day.day)}}/>
 							{{#if day.selected}}
 								<label for="{{this.elementId}}-{{day.day}}-startTime">From</label>
-								<Input @type="time" @value={{get (get this.args.task.dueDateByDays day.day) "startTime"}} id="{{this.elementId}}-{{day.day}}-startTime" required={{true}} @focus-out={{this.onSave}}/>
+								<Input @type="time" @value={{get (get this.args.task.dueDateByDays day.day) "startTime"}} id="{{this.elementId}}-{{day.day}}-startTime" max={{get (get this.args.task.dueDateByDays day.day) "endTime"}} required={{true}} @focus-out={{this.onSave}}/>
 								<label for="{{this.elementId}}-{{day.day}}-endTime">To</label>
-								<Input @type="time" @value={{get (get this.args.task.dueDateByDays day.day) "endTime"}} id="{{this.elementId}}-{{day.day}}-endTime" @focus-out={{this.onSave}}/>
+								<Input @type="time" @value={{get (get this.args.task.dueDateByDays day.day) "endTime"}} id="{{this.elementId}}-{{day.day}}-endTime" min={{get (get this.args.task.dueDateByDays day.day) "startTime"}} @focus-out={{this.onSave}}/>
 							{{/if}}
 						{{/each}}
 					</ol>
@@ -75,7 +75,7 @@
 	<ul class="task-actions" role="menubar">
 		<li class="task-action">
 			<label for="{{concat this.elementId "-complete"}}">{{svg-jar "checkmark"}}</label>
-			<Input @type="checkbox" @id={{concat this.elementId "-complete"}} @checked={{@task.complete}}/>
+			<Input @type="checkbox" @id={{concat this.elementId "-complete"}} @checked={{@task.complete}} {{on "blur" this.onSave}}/>
 		</li>
 		<li class="task-action">
 			<button>{{svg-jar "chat-bubble-dots"}}</button>

@@ -19,6 +19,10 @@ html, body {
 	height: 100%;
 }
 
+[role="main"], .task-widgets-container {
+	flex: 1;
+}
+
 body {
 	font-family: var(--base-font-family);
 	line-height: 1.4;

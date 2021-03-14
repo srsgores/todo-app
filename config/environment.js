@@ -7,7 +7,7 @@ module.exports = function(environment) {
 		rootURL: "/",
 		locationType: "auto",
 		emberPouch: {
-			remoteDb: "http://localhost:5984/todo",
+			remoteDb: "http://192.168.50.83/todo",
 			localDb: "todo"
 		},
 		EmberENV: {

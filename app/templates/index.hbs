@@ -5,16 +5,6 @@
 		</DashboardWidget>
 
 		<DashboardWidget>
-			<nav class="view-mode-nav">
-				<ul class="view-modes">
-					<li class="view-mode">
-						<LinkTo @query={{hash viewMode=null}}>{{svg-jar "view-list"}}</LinkTo>
-					</li>
-					<li class="view-mode">
-						<LinkTo @query={{hash viewMode="calendar"}}>{{svg-jar "calendar"}}</LinkTo>
-					</li>
-				</ul>
-			</nav>
 			{{#if this.isCalendarMode}}
 				<TasksByDay @tasks={{this.model}} @onAddTask={{this.addTask}}/>
 			{{else}}
@@ -22,10 +12,6 @@
 			{{/if}}
 		</DashboardWidget>
 	</div>
-
-	<DashboardWidget @title="Inbox" @count={{this.messages.length}}>
-		<MessageList @messages={{this.messages}}/>
-	</DashboardWidget>
 </article>
 
 {{outlet}}

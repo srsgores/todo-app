@@ -1,12 +1,22 @@
 <aside class="task-timeline" ...attributes>
 	<h2>{{this.title}}</h2>
 
-	{{#each this.startDates as |filterDate index|}}
-		<label for="{{filterDate}}">{{moment-from-now filterDate}}</label>
-		<Input @type="radio" @value="{{filterDate}}" @name="active-filter" @id={{filterDate}} @change={{fn (mut this.startFilterDate) filterDate}}/>
-	{{/each}}
+	<form action="" method="GET">
+		<ul class="start-date-options">
+			<li class="start-date-option">
+				<label for="{{this.componentID}}-all">All</label>
+				<Input @type="radio" checked="true" @name="active-filter" @id="{{this.componentID}}-all" @change={{fn (mut this.startFilterDate) null}}/>
+			</li>
+			{{#each this.startDates as |filterDate index|}}
+				<li class="start-date-option">
+					<label for="{{filterDate}}">{{moment-from-now filterDate}}</label>
+					<Input @type="radio" @value="{{filterDate}}" @name="active-filter" @id={{filterDate}} @change={{fn (mut this.startFilterDate) filterDate}}/>
+				</li>
+			{{/each}}
+		</ul>
+	</form>
 
-	<br>
+	<hr>
 	<ol class="tasks">
 		{{#each this.sortedFilteredTasks as |task|}}
 			<li class="task">

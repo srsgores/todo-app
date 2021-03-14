@@ -1,8 +1,10 @@
 import {filter, sort} from "@ember/object/computed";
 import Component from "@glimmer/component";
 import {tracked} from "@glimmer/tracking";
+import {guidFor} from "@ember/object/internals";
 
 export default class TaskTimelineComponent extends Component {
+	componentID = guidFor(this);
 	title = "Tasks";
 	@tracked startFilterDate;
 	@filter("args.tasks", ["startFilterDate"], function(task) {
@@ -18,7 +20,7 @@ export default class TaskTimelineComponent extends Component {
 		super(...arguments);
 		const dayIntervals = [-1, -14, -7, 7, 14];
 		this.startDates = dayIntervals.map((interval) => {
-			const today = new Date();
+			let today = new Date();
 			const otherDate = today.getDate() + interval;
 			today.setDate(otherDate);
 			return today;

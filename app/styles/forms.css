@@ -12,10 +12,6 @@ button {
 
 .form-field-label {
 	display: block;
-	top: 1em;
-	position: absolute;
-	left: 1em;
-	opacity: 0.6;
 	transition: 0.3s ease opacity;
 	color: #a4b6e1;
 	font-style: italic;

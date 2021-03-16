@@ -42,6 +42,7 @@
     "ember-data": "~3.25.0",
     "ember-export-application-global": "^2.0.1",
     "ember-fetch": "^8.0.4",
+    "ember-former": "git://github.com/srsgores/ember-former.git",
     "ember-load-initializers": "^2.1.2",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-moment": "^8.0.1",

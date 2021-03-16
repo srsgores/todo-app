@@ -44,16 +44,6 @@ export default class TaskItemComponent extends Component {
 		return await this.args.task.save();
 	}
 
-	@action onToggleDay(day, event) {
-		const checked = event.target.checked;
-		if (checked && (!this.args.task.dueDateByDays[day]?.startTime && !this.args.task.dueDateByDays[day]?.endTime)) {
-			this.args.task.dueDateByDays[day] = {
-				startTime: "",
-				endTime: ""
-			}
-		}
-	}
-
 	constructor() {
 		super(...arguments);
 		if (!this.hasTitle) {

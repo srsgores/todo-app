@@ -1,0 +1,21 @@
+<table class="calendar-selector">
+	<thead>
+		<tr>
+			{{#each this.days as |day|}}
+				<th>{{day.name}}</th>
+			{{/each}}
+		</tr>
+	</thead>
+	<tbody>
+		{{#each this.timeSegments as |timeSegment index|}}
+			<tr>
+				{{#each this.days as |day|}}
+					<td>
+						<Input @type="checkbox" @id="{{day.name}}-{{index}}-time-segment" form="{{this.componentID}}-form" @checked={{get day timeSegment.time}}/>
+					</td>
+				{{/each}}
+			</tr>
+		{{/each}}
+	</tbody>
+</table>
+{{yield}}

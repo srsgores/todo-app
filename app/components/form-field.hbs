@@ -1,4 +1,4 @@
-<div class="{{this.className}} {{if this.hasFocus this.focusedClassName}}" ...attributes>
+<div class="{{this.className}} {{if this.hasFocus this.focusedClassName}} {{this.modelName}}-{{@field}}" ...attributes>
 	<label for={{this.elementId}} class={{this.labelClassName}}>
 		{{#if @labelText}}
 			{{@labelText}}

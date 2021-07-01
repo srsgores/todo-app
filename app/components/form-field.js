@@ -30,6 +30,10 @@ export default class FormFieldComponent extends Component {
 	@computed.equal("type", "textarea") isTextarea;
 	@computed.empty("args.required") isRequired;
 
+	get modelName() {
+		return this.args.model?._internalModel?.modelName;
+	}
+
 	get type() {
 		return this.args.type || guessType(this.args.model, {attributeName: this.args.field});
 	}

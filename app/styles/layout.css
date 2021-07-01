@@ -90,13 +90,6 @@ svg ~ .nav-item-text {
 	text-decoration: none;
 }
 
-input, textarea {
-	background: transparent;
-	border: 0.1em solid currentColor;
-	color: inherit;
-	box-shadow: none;
-}
-
 .content-container {
 	display: flex;
 	flex: 1;
@@ -121,7 +114,7 @@ img {
 	flex-wrap: wrap;
 }
 
-.visuallyhidden {
+.visuallyhidden, legend {
 	position: absolute !important;
 	height: 1px;
 	width: 1px;

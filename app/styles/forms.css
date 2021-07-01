@@ -1,3 +1,7 @@
+:root {
+	--form-field-background: rgba(0, 0, 0, .20);
+}
+
 button {
 	cursor: pointer;
 }
@@ -13,9 +17,13 @@ button {
 .form-field-label {
 	display: block;
 	transition: 0.3s ease opacity;
+	opacity: 0.95;
 	color: #a4b6e1;
-	font-style: italic;
 	font-weight: 500;
+}
+
+.form-field-label:hover {
+	opacity: 1;
 }
 
 .form-field-control {
@@ -81,4 +89,31 @@ button {
 	border: 0;
 	font-size: 1em;
 	border-radius: 0.5em;
+}
+
+fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+input, select, textarea, button {
+	font-family: inherit;
+}
+
+input[type=email], input[type=text], textarea {
+	padding: 0.4em 0.8em;
+	box-sizing: border-box;
+}
+
+input, textarea {
+	background: var(--form-field-background);
+	border: 0.1em solid currentColor;
+	color: inherit;
+	box-shadow: none;
+	border: none;
+}
+
+.task-title .form-control, .task-description .form-control {
+	display: block;
 }
